@@ -1,9 +1,9 @@
-package com.gennlife.mengyujie.test;
+package com.gennlife.myujie.test;
 
 import org.junit.Test;
 
 import com.gennlife.crf.bean.Excel;
-import com.gennlife.mengyujie.ConfiguredLinkagePath;
+import com.gennlife.myujie.ConfiguredLinkagePath;
 
 public class TestConfiguredLinkagePath {
 

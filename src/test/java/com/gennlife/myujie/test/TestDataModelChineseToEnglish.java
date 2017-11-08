@@ -1,8 +1,9 @@
-package com.gennlife.mengyujie.test;
+package com.gennlife.myujie.test;
 
 import org.junit.Test;
+
 import com.gennlife.crf.bean.Excel;
-import com.gennlife.mengyujie.DataModelChineseToEnglish;
+import com.gennlife.myujie.DataModelChineseToEnglish;
 
 public class TestDataModelChineseToEnglish {
 

@@ -1,9 +1,9 @@
-package com.gennlife.mengyujie.test;
+package com.gennlife.myujie.test;
 
 import org.junit.Test;
 
 import com.gennlife.crf.bean.Excel;
-import com.gennlife.mengyujie.ConfiguredRequiredPath;
+import com.gennlife.myujie.ConfiguredRequiredPath;
 
 public class TestConfiguredRequiredPath {
 

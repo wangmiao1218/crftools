@@ -85,6 +85,7 @@
 			<artifactId>spring-test</artifactId>
 			<version>4.0.0.RELEASE</version>
 		</dependency>
+		
 		<!-- 日志库 -->
 		<dependency>
 			<groupId>commons-logging</groupId>
