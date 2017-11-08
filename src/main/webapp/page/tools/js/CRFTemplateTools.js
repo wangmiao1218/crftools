@@ -74,9 +74,9 @@ function initCombo(){
 }
 */
 
- //配置联动路径
-function configuredLinkagePath(){
-	url = rootPath + "/CRFTemplateToolsController/configuredLinkagePath";
+ //配置必填路径
+function configuredRequiredPath(){
+	url = rootPath + "/CRFTemplateToolsController/configuredRequiredPath";
 	$.ajax({
         type : "get",// 请求方式
         url : url,// 发送请求地址
@@ -102,6 +102,36 @@ function configuredLinkagePath(){
 		}
     });
 
+}
+
+//配置联动路径
+function configuredLinkagePath(){
+	url = rootPath + "/CRFTemplateToolsController/configuredLinkagePath";
+	$.ajax({
+		type : "get",// 请求方式
+		url : url,// 发送请求地址
+		dataType : 'JSON',
+		//加遮蔽罩
+		beforeSend: function () {
+			$("#myShow").show();
+		},
+		
+		// 请求成功后的回调函数
+		success : function(data) {
+			alert(data.msg);
+			//成功后才跳转，请求controller，跳转到文件列表页面，以便下载
+			//window.location.href = rootPath+"/crfLinkagePathController/showFilesList";
+			//改成成功后显示下载按钮
+			$("#downloadButton").show();
+		},
+		complete: function () {
+			$("#myShow").hide();
+		},
+		error : function(data) {
+			alert("处理失败！");
+		}
+	});
+	
 }
 
 //配置英文名称
@@ -205,6 +235,7 @@ function upload() {
 			alert(data.msg);
 			$("#dealEnNamesButton").show();
 			$("#dealPathButton").show();
+			$("#dealRequiredPathButton").show();
 		},
 		error : function(data) {
 			alert("上传失败");

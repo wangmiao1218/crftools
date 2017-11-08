@@ -21,6 +21,7 @@ import com.gennlife.crf.bean.Excel;
 import com.gennlife.crf.bean.ResultBean;
 import com.gennlife.crf.utils.FileUtils;
 import com.gennlife.myujie.ConfiguredLinkagePath;
+import com.gennlife.myujie.ConfiguredRequiredPath;
 import com.gennlife.myujie.TranslateToEnglish;
 
 
@@ -237,6 +238,49 @@ public class CRFTemplateToolsController {
         //下载后则清空"F:\\uploadFile\\"
       	FileUtils.deleteFile("F:\\uploadFile\\");
     }
+
+    
+    //配置必填路径
+    @RequestMapping(value="configuredRequiredPath",method = RequestMethod.GET)
+   	@ResponseBody
+   	public ResultBean configuredRequiredPath() throws Exception{
+   		ResultBean result = new ResultBean();
+   		String fileName1=null;
+   		String fileName2=null;
+   		//获取模板的文件名称
+   		List<String> list1 = FileUtils.getFileNameList("F:\\uploadFile\\1\\");
+   		//获取crf的文件名称
+   		List<String> list2 = FileUtils.getFileNameList("F:\\uploadFile\\2\\");
+   		if (list1.size()==0 || list2.size()==0) {
+   			result.setResult(ResultBean.RESULT_FAILED);
+   			result.setMsg("配置必填路径失败！");
+   			return result;
+   		}
+   		
+   		fileName1=list1.get(0);
+   		fileName2=list2.get(0);
+   		
+   		//调用方法开始
+        //只copy要修改的文件，到输出路径,并重命名为前缀加new_
+   		String outFilePathString = "F:\\uploadFile\\out\\";
+           try {
+           	//FileUtils.copyFile("F:\\uploadFile\\1\\"+fileName1, "F:\\uploadFile\\out\\"+fileName1);
+       		FileUtils.copyFile("F:\\uploadFile\\2\\"+fileName2, "F:\\uploadFile\\out\\"+"RequiredPath_"+fileName2);
+           } catch (Exception e) {
+   			result.setResult(ResultBean.RESULT_FAILED);
+   			result.setMsg("配置必填路径失败！");
+   		}
+           
+           Excel excelmb = new Excel("F:\\uploadFile\\1\\",fileName1,"总体结构");
+           Excel excel = new Excel(outFilePathString,"RequiredPath_"+fileName2,"总体结构");
+           
+           ConfiguredRequiredPath.writeRequiredPath(excelmb, excel);
+           //调用方法结束
+   		result.setResult(ResultBean.RESULT_SUCCESS);
+   		result.setMsg("配置必填路径成功！");
+   		
+           return result;
+   	}
 
     
 	/*

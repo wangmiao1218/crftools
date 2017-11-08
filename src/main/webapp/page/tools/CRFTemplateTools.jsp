@@ -43,6 +43,7 @@
 	        	<button class="upload-btn" id="upload-btn" onclick="upload()" >上传文件</button>
 	            <button class="submit-btn" style="display: none" id="dealEnNamesButton" onclick="translateToEnglish()">配置英文名称</button>
 	            <button class="submit-btn" style="display: none" id="dealPathButton" onclick="configuredLinkagePath()">配置联动路径</button>
+	            <button class="submit-btn" style="display: none" id="dealRequiredPathButton" onclick="configuredRequiredPath()">配置必填路径</button>
 	            <a id="downloadButton" style="display: none" href="<%=rootPath %>/CRFTemplateToolsController/downloadFile">下载文件</a>
 	        </div>
         </div>
