@@ -7,16 +7,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
-
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.gennlife.crf.bean.Excel;
 import com.gennlife.crf.bean.ResultBean;
 import com.gennlife.crf.utils.FileUtils;
@@ -263,23 +260,23 @@ public class CRFTemplateToolsController {
    		//调用方法开始
         //只copy要修改的文件，到输出路径,并重命名为前缀加new_
    		String outFilePathString = "F:\\uploadFile\\out\\";
-           try {
-           	//FileUtils.copyFile("F:\\uploadFile\\1\\"+fileName1, "F:\\uploadFile\\out\\"+fileName1);
-       		FileUtils.copyFile("F:\\uploadFile\\2\\"+fileName2, "F:\\uploadFile\\out\\"+"RequiredPath_"+fileName2);
-           } catch (Exception e) {
+   		try {
+   			//FileUtils.copyFile("F:\\uploadFile\\1\\"+fileName1, "F:\\uploadFile\\out\\"+fileName1);
+   			FileUtils.copyFile("F:\\uploadFile\\2\\"+fileName2, "F:\\uploadFile\\out\\"+"RequiredPath_"+fileName2);
+   		} catch (Exception e) {
    			result.setResult(ResultBean.RESULT_FAILED);
    			result.setMsg("配置必填路径失败！");
    		}
-           
-           Excel excelmb = new Excel("F:\\uploadFile\\1\\",fileName1,"总体结构");
-           Excel excel = new Excel(outFilePathString,"RequiredPath_"+fileName2,"总体结构");
-           
-           ConfiguredRequiredPath.writeRequiredPath(excelmb, excel);
-           //调用方法结束
+       
+   		Excel excelmb = new Excel("F:\\uploadFile\\1\\",fileName1,"总体结构");
+   		Excel excel = new Excel(outFilePathString,"RequiredPath_"+fileName2,"总体结构");
+       
+       	ConfiguredRequiredPath.writeRequiredPath(excelmb, excel);
+       	//调用方法结束
    		result.setResult(ResultBean.RESULT_SUCCESS);
    		result.setMsg("配置必填路径成功！");
    		
-           return result;
+        return result;
    	}
 
     
@@ -298,6 +295,6 @@ public class CRFTemplateToolsController {
     	//跳转到文件列表页面，以便下载
         return "redirect:/page/tools/showFilesList.jsp";
     } 
-     */
+    */
     
 }
