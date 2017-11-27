@@ -59,9 +59,7 @@ public class ListAndStringUtils {
                 diff.add(entry.getKey());  
             }  
         }  
-        
         System.out.println("getDiffrent4 total times "+(System.nanoTime()-st));  
-        
         return diff;  
     }  
 	
@@ -126,8 +124,8 @@ public class ListAndStringUtils {
 		}
 		return returnlist;
 	}
-	
 	*/
+	
 	/** 
 	 * @Title: searchCrfListReturnOneCrf 
 	 * @Description: 再list中搜索符合条件的对象
@@ -147,8 +145,8 @@ public class ListAndStringUtils {
 			}
 		}
 		return crfTemplateAnzhenXinXueguan;
-	}*/
-	
+	}
+	*/
 	
 	/**
 	 * @Title: rangeDataReturnNeededRangeData
